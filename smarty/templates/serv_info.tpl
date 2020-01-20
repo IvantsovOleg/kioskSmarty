@@ -1,0 +1,1 @@
+<input type='hidden' id='hid2' value='{$INFO}'>

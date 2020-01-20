@@ -1,0 +1,24 @@
+<IfModule mod_php5.c>
+    #RewriteEngine on
+	#Options +FollowSymlinks
+	#RewriteRule ^index.php$ speciality.php - перекидывает просто страницу index на страницу speciality
+	
+	RewriteEngine on
+	RewriteBase /kiosk
+	#RewriteCond %{HTTPS} off
+	#RewriteCond %{REQUEST_URI} !=/index
+	#RewriteCond %{REQUEST_FILENAME} !-f
+	#RewriteCond %{REQUEST_FILENAME} !-d
+	#RewriteCond %{THE_REQUEST} !\.css
+	#RewriteCond %{THE_REQUEST} !\.jpg
+	#RewriteCond %{THE_REQUEST} !\.gif
+	#RewriteCond %{THE_REQUEST} !\.png
+	#RewriteCond %{THE_REQUEST} !\.js
+
+	RewriteRule   ^index/?$  index.php
+	#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+	#RewriteRule ^index/?$ index.php [QSA,L]
+	#RewriteRule ^/([A-Za-z0-9_-]+)/?$ /index.php [PT,L]
+	#RewriteRule ^index/speciality/?$ speciality.php?mode=1&dms=0 [QSA,L]
+	#RewriteRule ^speciality/?$ speciality.php?mode=1&dms=0 [QSA,L]
+</IfModule>

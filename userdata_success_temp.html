@@ -1,0 +1,25 @@
+		<p>
+			<img id="barcodeImage" style="border: solid 1px blue;"/>
+		</p>   
+        <script type="text/javascript">
+			$(document).ready(function () {
+				function updateBarcode() 
+				{
+					alert('test');
+					var barcode = new bytescoutbarcode128();
+					var value = document.getElementById("visitid").value;
+					alert(value);
+					barcode.valueSet(value);
+					barcode.setMargins(5, 5, 5, 5);
+					barcode.setBarWidth(2);
+
+					var width = barcode.getMinWidth();
+					barcode.setSize(width, 100);
+
+					var barcodeImage = document.getElementById('barcodeImage');
+					barcodeImage.src = barcode.exportToBase64(width, 100, 0);
+				}
+				updateBarcode();
+				
+			});
+        </script>
